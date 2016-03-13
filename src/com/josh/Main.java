@@ -16,7 +16,7 @@ public class Main {
         //}
         //call function to build deck
 
-        for (Object listing : deck) {
+        for (Object listing : deckInUse) {
             System.out.println(listing);
 
         }
