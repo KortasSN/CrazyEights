@@ -12,11 +12,11 @@ public class Main {
         ArrayList<String> deck = new ArrayList<>();
 
         //while (deck.size() < 52) {
-            builddeck();
+        ArrayList deckInUse = builddeck(deck);
         //}
         //call function to build deck
 
-        for (Object listing: deck) {
+        for (Object listing : deck) {
             System.out.println(listing);
 
         }
@@ -27,7 +27,7 @@ public class Main {
 
     /////METHODS/////
 
-    private static ArrayList builddeck() {
+    private static ArrayList builddeck(ArrayList deck) {
 
         ArrayList<String> suits = new ArrayList();
         suits.add("clubs");
@@ -53,8 +53,9 @@ public class Main {
         //HashMap<Integer, String> cards = new HashMap<>();
 
 
-        ArrayList<String> deck = new ArrayList<>();
-        while (deck.size() < 52) {
+        //ArrayList<String> deck = new ArrayList<>();
+        deck.add("joker");
+        while (deck.size() < 53) {
             Random ran = new Random();
             int suitsRandom = ran.nextInt(3) + 1;
             String suitPicked = suits.get(suitsRandom);
@@ -64,18 +65,36 @@ public class Main {
             String cardPicked = suitPicked + numberPicked;
 
 
+            /*for (Object item : deck) {
+                if (cardPicked == ) {
+                    break;} else {
+                     //System.out.println("already in deck");
+                        //} else {
+                        System.out.println(cardPicked);
+                        deck.add(cardPicked);
+                    }*/
 
-            for (Object check : deck) {
-                if (cardPicked == check) {
-                    System.out.println("already in deck");
-                } else {
-                    System.out.println(cardPicked);
+            /*for (int b = 0; b < deck.size(); b++) {
+                if (cardPicked != deck.get(b)) {
                     deck.add(cardPicked);
-             }
-         }
+                    /*} else {
+                        System.out.println(cardPicked);
+*/
+
+            if (deck.contains(cardPicked) == false) {
+                deck.add(cardPicked);
+            }
+
+                }
+        return deck;
+            }
 
         }
-        return deck;
-    }
-}
+
+
+
+
+
+
+
 
