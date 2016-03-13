@@ -8,21 +8,18 @@ import java.util.Random;
 public class Main {
 
     public static void main(String[] args) {
+
         ArrayList<String> deck = new ArrayList<>();
 
-        while (deck.size() < 52) {
+        //while (deck.size() < 52) {
             builddeck();
-        }
+        //}
         //call function to build deck
 
         for (Object listing: deck) {
             System.out.println(listing);
 
         }
-
-
-
-
     }
 
     //call function to deal cards
@@ -31,6 +28,7 @@ public class Main {
     /////METHODS/////
 
     private static ArrayList builddeck() {
+
         ArrayList<String> suits = new ArrayList();
         suits.add("clubs");
         suits.add("diamonds");
@@ -52,24 +50,29 @@ public class Main {
         number.add("Queen");
         number.add("King");
 
-        HashMap<Integer, String> cards = new HashMap<>();
-        Random ran = new Random();
-        int suitsRandom = ran.nextInt(3) + 1;
-        String suitPicked = suits.get(suitsRandom);
+        //HashMap<Integer, String> cards = new HashMap<>();
 
-        int numberRandom = ran.nextInt(12) + 1;
-        String numberPicked = number.get(numberRandom);
-
-        String cardPicked = suitPicked + numberPicked;
 
         ArrayList<String> deck = new ArrayList<>();
+        while (deck.size() < 52) {
+            Random ran = new Random();
+            int suitsRandom = ran.nextInt(3) + 1;
+            String suitPicked = suits.get(suitsRandom);
+            int numberRandom = ran.nextInt(12) + 1;
+            String numberPicked = number.get(numberRandom);
 
-        for (Object check : deck) {
-            if (cardPicked == check) {
-                System.out.println("already in deck");
-            } else {
-                deck.add(cardPicked);
-            }
+            String cardPicked = suitPicked + numberPicked;
+
+
+
+            for (Object check : deck) {
+                if (cardPicked == check) {
+                    System.out.println("already in deck");
+                } else {
+                    System.out.println(cardPicked);
+                    deck.add(cardPicked);
+             }
+         }
 
         }
         return deck;
