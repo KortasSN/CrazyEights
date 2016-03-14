@@ -11,22 +11,108 @@ public class Main {
 
         ArrayList<String> deck = new ArrayList<>();
 
-        //while (deck.size() < 52) {
+
         ArrayList deckInUse = builddeck(deck);
-        //}
+
         //call function to build deck
 
+        /* This is to print out the deck
         for (Object listing : deckInUse) {
             System.out.println(listing);
-
         }
+        */
+
+        Random ran = new Random();
+        int x = ran.nextInt(deckInUse.size());
+        ArrayList<String> playerHand = new ArrayList<>();
+
+        playerHand.add(String.valueOf(deckInUse.get(x)));
+        //System.out.println(playerHand);
+        deckInUse.remove(String.valueOf(deckInUse.remove(x)));
+        //System.out.println(deckInUse);
+        //String dealCard = deckInUse;
     }
+
+
 
     //call function to deal cards
 
 
     /////METHODS/////
 
+    public static ArrayList builddeck(ArrayList<String> deck) {
+        deck.add("A Clubs");
+        deck.add("A Diamonds");
+        deck.add("A Hearts");
+        deck.add("A Spades");
+        deck.add("2 Clubs");
+        deck.add("2 Diamonds");
+        deck.add("2 Hearts");
+        deck.add("2 Spades");
+        deck.add("3 Clubs");
+        deck.add("3 Diamonds");
+        deck.add("3 Hearts");
+        deck.add("3 Spades");
+        deck.add("4 Clubs");
+        deck.add("4 Diamonds");
+        deck.add("4 Hearts");
+        deck.add("4 Spades");
+        deck.add("5 Clubs");
+        deck.add("5 Diamonds");
+        deck.add("5 Hearts");
+        deck.add("5 Spades");
+        deck.add("6 Clubs");
+        deck.add("6 Diamonds");
+        deck.add("6 Hearts");
+        deck.add("6 Spades");
+        deck.add("7 Clubs");
+        deck.add("7 Diamonds");
+        deck.add("7 Hearts");
+        deck.add("7 Spades");
+        deck.add("8 Clubs");
+        deck.add("8 Diamonds");
+        deck.add("8 Hearts");
+        deck.add("8 Spades");
+        deck.add("9 Clubs");
+        deck.add("9 Diamonds");
+        deck.add("9 Hearts");
+        deck.add("9 Spades");
+        deck.add("10 Clubs");
+        deck.add("10 Diamonds");
+        deck.add("10 Hearts");
+        deck.add("10 Spades");
+        deck.add("Jack Clubs");
+        deck.add("Jack Diamonds");
+        deck.add("Jack Hearts");
+        deck.add("Jack Spades");
+        deck.add("Queen Clubs");
+        deck.add("Queen Diamonds");
+        deck.add("Queen Hearts");
+        deck.add("Queen Spades");
+        deck.add("King Clubs");
+        deck.add("King Diamonds");
+        deck.add("King Hearts");
+        deck.add("King Spades");
+
+        return deck;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* COMMENTING THIS OUT AS TAKES FOREVER TO BUILD A DECK
     private static ArrayList builddeck(ArrayList deck) {
 
         ArrayList<String> suits = new ArrayList();
@@ -79,7 +165,7 @@ public class Main {
                     deck.add(cardPicked);
                     /*} else {
                         System.out.println(cardPicked);
-*/
+
 
             if (deck.contains(cardPicked) == false) {
                 deck.add(cardPicked);
@@ -87,8 +173,9 @@ public class Main {
 
                 }
         return deck;
-            }
 
+            }
+*/
         }
 
 
