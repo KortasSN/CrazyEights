@@ -10,29 +10,54 @@ public class Main {
     public static void main(String[] args) {
 
         ArrayList<String> deck = new ArrayList<>();
+        ArrayList<String> deckInUse = new ArrayList<>();
+        ArrayList<String> getPlayerHand = new ArrayList<>();
+        ArrayList<String> computerHand = new ArrayList<>();
+        ArrayList<String> playerHand = new ArrayList<>();
+        deckInUse = builddeck(deck);
+        String discardPile;
 
-
-        ArrayList deckInUse = builddeck(deck);
-
-        //call function to build deck
 
         /* This is to print out the deck
         for (Object listing : deckInUse) {
             System.out.println(listing);
         }
         */
+        for (int a = 0; a < 7; a++) {   //for loop to get the player's hand
+            Random ran = new Random();
+            int x = ran.nextInt(deckInUse.size());
+            playerHand.add(String.valueOf(deckInUse.get(x)));
+            deckInUse.remove(String.valueOf(deckInUse.remove(x)));
+            //String dealCard = deckInUse;
+        }
 
+        for (int b = 0; b < 7; b++) {   //for loop to get the computer's hand
+            Random ran = new Random();
+            int y = ran.nextInt(deckInUse.size());
+            computerHand.add(String.valueOf(deckInUse.get(y)));
+            deckInUse.remove(String.valueOf(deckInUse.remove(y)));
+        }
+
+
+        //Getting the first card for the game
         Random ran = new Random();
-        int x = ran.nextInt(deckInUse.size());
-        ArrayList<String> playerHand = new ArrayList<>();
+        int z = ran.nextInt(deckInUse.size());
+        discardPile = String.valueOf(deckInUse.get(z));
 
-        playerHand.add(String.valueOf(deckInUse.get(x)));
-        //System.out.println(playerHand);
-        deckInUse.remove(String.valueOf(deckInUse.remove(x)));
-        //System.out.println(deckInUse);
-        //String dealCard = deckInUse;
+//player's turn
+        playersturn(playerHand);
+
+        System.out.println("Player's Cards");
+        System.out.println(playerHand);
+        System.out.println("Computer's Cards");
+        System.out.println(computerHand);
+        System.out.println(deckInUse);
+        System.out.println(discardPile);
     }
 
+    private static void playersturn(playerHand) {
+        System.out.println(playerHand);
+    }
 
 
     //call function to deal cards
