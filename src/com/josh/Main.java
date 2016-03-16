@@ -32,13 +32,15 @@ public class Main {
         }
         //Deal the initial card to start game//
         discard.dealCard(deck);
+
+        //Output of the cards//
+
         System.out.println("Player's Cards");
         System.out.println(player.cardsInHand);
         System.out.println("Computer's Cards");
         System.out.println(computer.cardsInHand);
 
-        //System.out.println(deckInUse);
-
+        System.out.println("First card in play is the " + discard.cardsInHand);
 
     }
 
