@@ -32,8 +32,9 @@ public class Hand {
         cardsInHand.add(String.valueOf(dealCardDeck.get(x)));
         dealCardDeck.remove(String.valueOf(dealCardDeck.remove(x)));
         //String dealCard = deckInUse;
-
-
     }
 
-}
+    //public void turn();    {
+        //System.out.println("You have the following cards to play on the " + );
+
+    }

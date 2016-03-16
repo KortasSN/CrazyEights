@@ -1,19 +1,24 @@
 package com.josh;
 
+import com.sun.beans.decoder.ValueObject;
+
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
-
+        //creating ArrayLists for use//
         ArrayList<String> getDeck = new ArrayList<>();
         ArrayList<String> deckInUse = new ArrayList<>();
         ArrayList<String> deck = new ArrayList<>();
 
-
+        //build original deck
         deck = builddeck(getDeck);
+
+        //create player and computer hands
         Hand player =
                 new Hand();
 
@@ -23,8 +28,9 @@ public class Main {
         Hand discard =
                 new Hand();
 
+        //String discardCard;
 
-        //Dealing initial cards to start the game//
+        //Dealing initial cards to each hand to start the game//
         for (int x = 0; x < 7; x++) {
             player.dealCard(deck);
 
@@ -33,7 +39,7 @@ public class Main {
         //Deal the initial card to start game//
         discard.dealCard(deck);
 
-        //Output of the cards//
+        //Output of the cards//   ***ffor testing only***
 
         System.out.println("Player's Cards");
         System.out.println(player.cardsInHand);
@@ -42,7 +48,40 @@ public class Main {
 
         System.out.println("First card in play is the " + discard.cardsInHand);
 
-    }
+
+        //playing the game
+
+        //player's turn//
+        System.out.println("You have these cards to play on the " + discard.cardsInHand);
+        System.out.println(player.cardsInHand);
+        System.out.println("Pick a card to play");
+
+        Scanner scanner = new Scanner(System.in);
+        String pickCard = scanner.nextLine();
+        for (int d = 0; d < player.cardsInHand.size(); d++) {
+            if (player.cardsInHand.get(d).contains(pickCard)) {
+                System.out.println("you can play this card");
+            } else {
+                System.out.println("Please pick a different card");
+        }
+
+                int discardCount = discard.cardsInHand.size();
+                String discardString = discard.cardsInHand.get(discardCount);
+                String discardSplit[] = discardString.split("");
+                System.out.println(discardSplit);
+            /*
+            String discardStringStarts = discardString.startsWith();
+            if (pickCard.startsWith() == (discardString.startsWith()))
+*/
+                discard.cardsInHand.add(pickCard);
+
+            }
+
+            //player.turn(ArrayList (discard.cardsInHand);
+
+
+        }
+
 
 
 
