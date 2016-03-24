@@ -56,29 +56,35 @@ public class Main {
         System.out.println(player.cardsInHand);
         System.out.println("Pick a card to play");
         Scanner scanner = new Scanner(System.in);
-        String pickCard = scanner.nextLine();
+        String pickCard = scanner.nextLine();      //card selected to play from hand
 
         //checking card picked is in the hand//
         for (int d = 0; d < player.cardsInHand.size(); d++) {
-            if (player.cardsInHand.get(d).contains(pickCard)) {
-                System.out.println("you can play this card");
+            if (player.cardsInHand.get(d).contains(pickCard))   {
+                System.out.println("You can play this card");
             } else {
                 System.out.println("Please pick a different card");
-        }
-        //checking card picked to the card faceup//
-            System.out.println(discard.cardsInHand);
-            int discardCount = discard.cardsInHand.size();
-            System.out.println(discardCount);
-            String discardString = discard.cardsInHand.get(discardCount);
-                String discardSplit[] = discardString.split("");
-                System.out.println(discardSplit);
-            /*
-            String discardStringStarts = discardString.startsWith();
-            if (pickCard.startsWith() == (discardString.startsWith()))
-*/
-                discard.cardsInHand.add(pickCard);
 
+        }
+
+            //if (player.cardsInHand.get)
+            //checking card picked to the card faceup//
+            //System.out.println(discard.cardsInHand);
+            int discardCount = discard.cardsInHand.size();
+            //System.out.println(discardCount);
+            String discardString = discard.cardsInHand.get(0);
+
+            //System.out.println(discardString);     //testing purposes
+               String discardSplit[] = discardString.split(" ");
+              //System.out.println(discardSplit);             //testing purposes
+            if (discardString.contains(discardSplit[0]) || (discardString.contains(discardSplit[2]))) {
+                discard.cardsInHand.add(pickCard);
+            } else {
+                System.out.println("You cannot play this card");
             }
+            System.out.println(discard.cardsInHand);
+            }
+
 
             //player.turn(ArrayList (discard.cardsInHand);
 
