@@ -37,8 +37,8 @@ public class Main {
             computer.dealCard(deck);
         }
         //Deal the initial card to start game//
-        discard.dealCard(deck);
 
+        discard.dealCard(deck);
         //Output of the cards//   ***ffor testing only***
 
         System.out.println("Player's Cards");
@@ -51,22 +51,25 @@ public class Main {
 
         //playing the game
 
-        //player's turn//
+        //player's turn//  //listing cards in hand//
         System.out.println("You have these cards to play on the " + discard.cardsInHand);
         System.out.println(player.cardsInHand);
         System.out.println("Pick a card to play");
-
         Scanner scanner = new Scanner(System.in);
         String pickCard = scanner.nextLine();
+
+        //checking card picked is in the hand//
         for (int d = 0; d < player.cardsInHand.size(); d++) {
             if (player.cardsInHand.get(d).contains(pickCard)) {
                 System.out.println("you can play this card");
             } else {
                 System.out.println("Please pick a different card");
         }
-
-                int discardCount = discard.cardsInHand.size();
-                String discardString = discard.cardsInHand.get(discardCount);
+        //checking card picked to the card faceup//
+            System.out.println(discard.cardsInHand);
+            int discardCount = discard.cardsInHand.size();
+            System.out.println(discardCount);
+            String discardString = discard.cardsInHand.get(discardCount);
                 String discardSplit[] = discardString.split("");
                 System.out.println(discardSplit);
             /*
