@@ -46,49 +46,68 @@ public class Main {
         System.out.println("Computer's Cards");
         System.out.println(computer.cardsInHand);
 
-        System.out.println("First card in play is the " + discard.cardsInHand);
+        System.out.println("First card in play is the " + discard.cardsInHand.get(0));
 
 
         //playing the game
 //FOR LOOP FOR GAME - GOES UNTIL ONE HAND IS EMPTY//
         while (player.cardsInHand != null || computer.cardsInHand != null) {
             //player's turn//  //listing cards in hand//
-            System.out.println("Player, uou have these cards to play on the " + discard.cardsInHand);
+            System.out.println("Player, you have these cards to play on the " + discard.cardsInHand.get(0));
             System.out.println(player.cardsInHand);
-            System.out.println("Pick a card to play");
+            System.out.println("Pick a card to play or enter 'pick' to take a card.");
             Scanner scanner = new Scanner(System.in);
-            String pickCard = scanner.nextLine();      //card selected to play from hand
+            String pickCard = scanner.nextLine();         //card selected to play from hand
+            if (pickCard == "pick") {
+                player.dealCard(deck);
+            }
 
             //checking card picked is in the hand//
             for (int d = 0; d < player.cardsInHand.size(); d++) {
                 if (player.cardsInHand.get(d).contains(pickCard)) {
-                    System.out.println("You can play this card");
+                    //System.out.println("You can play this card");
+                    break;
                 } else {
                     System.out.println("Please pick a different card");
                 }
-
-                int discardCount = discard.cardsInHand.size();
-                //System.out.println(discardCount);
-                String discardString = discard.cardsInHand.get(0);
-
-                //System.out.println(discardString);     //testing purposes
-                String discardSplit[] = discardString.split(" ");
-                //System.out.println(discardSplit);             //testing purposes
-                if (discardString.contains(discardSplit[0]) || (discardString.contains(discardSplit[2]))) {
-                    discard.cardsInHand.add(pickCard);
-                    player.cardsInHand.remove(pickCard);
-                } else {
-                    System.out.println("You cannot play this card");
-                }
-                System.out.println(discard.cardsInHand);
             }
 
+            //int discardCount = discard.cardsInHand.size();
+            //System.out.println(discardCount);
+            String discardString = discard.cardsInHand.get(0);
 
-            //player.turn(ArrayList (discard.cardsInHand);
+            //System.out.println(discardString);     //testing purposes
+            String discardSplit[] = discardString.split(" ");
+            //System.out.println(discardSplit);             //testing purposes
+            if (discardString.contains(discardSplit[0]) || (discardString.contains(discardSplit[2]))) {
+                discard.cardsInHand.remove(0);
+                discard.cardsInHand.add(pickCard);
+                player.cardsInHand.remove(pickCard);
+            } else {
+                System.out.println("You cannot play this card");
+            }
+            System.out.println(discard.cardsInHand);
 
 
+            //COMPUTER'S TURN//
+            //int discardCount = discard.cardsInHand.size();
+            System.out.println(computer.cardsInHand);
+            System.out.println("Computer plays on " + discard.cardsInHand.get(0));
+            discardString = discard.cardsInHand.get(0);
+            discardSplit = discardString.split(" ");
+            for (int r = 0; r < computer.cardsInHand.size(); r++) {
+                if (computer.cardsInHand.get(r).contains(discardSplit[0]) || computer.cardsInHand.get(r).contains(discardSplit[2])) {
+                    System.out.println("Computer plays " + computer.cardsInHand.get(r));
+                    computer.cardsInHand.remove(r);
+                    discard.cardsInHand.remove(0);
+                    discard.cardsInHand.add(computer.cardsInHand.get(r));
+                    break;
+                } else {
+                    computer.dealCard(deck);
+
+                }
+            }
         }
-
     }
 
 
@@ -96,7 +115,7 @@ public class Main {
 
     /////METHODS/////
 
-
+///Building of deck///
     public static ArrayList builddeck(ArrayList<String> getDeck) {
         String suit[] = new String[4];
         suit[0] = "Clubs";
