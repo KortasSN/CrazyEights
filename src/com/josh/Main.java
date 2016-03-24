@@ -39,7 +39,7 @@ public class Main {
         //Deal the initial card to start game//
 
         discard.dealCard(deck);
-        //Output of the cards//   ***ffor testing only***
+        //Output of the cards//   ***for testing only***
 
         System.out.println("Player's Cards");
         System.out.println(player.cardsInHand);
@@ -79,6 +79,7 @@ public class Main {
               //System.out.println(discardSplit);             //testing purposes
             if (discardString.contains(discardSplit[0]) || (discardString.contains(discardSplit[2]))) {
                 discard.cardsInHand.add(pickCard);
+                player.cardsInHand.remove(pickCard);
             } else {
                 System.out.println("You cannot play this card");
             }
