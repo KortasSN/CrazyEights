@@ -50,40 +50,37 @@ public class Main {
 
 
         //playing the game
+//FOR LOOP FOR GAME - GOES UNTIL ONE HAND IS EMPTY//
+        while (player.cardsInHand != null || computer.cardsInHand != null) {
+            //player's turn//  //listing cards in hand//
+            System.out.println("Player, uou have these cards to play on the " + discard.cardsInHand);
+            System.out.println(player.cardsInHand);
+            System.out.println("Pick a card to play");
+            Scanner scanner = new Scanner(System.in);
+            String pickCard = scanner.nextLine();      //card selected to play from hand
 
-        //player's turn//  //listing cards in hand//
-        System.out.println("You have these cards to play on the " + discard.cardsInHand);
-        System.out.println(player.cardsInHand);
-        System.out.println("Pick a card to play");
-        Scanner scanner = new Scanner(System.in);
-        String pickCard = scanner.nextLine();      //card selected to play from hand
+            //checking card picked is in the hand//
+            for (int d = 0; d < player.cardsInHand.size(); d++) {
+                if (player.cardsInHand.get(d).contains(pickCard)) {
+                    System.out.println("You can play this card");
+                } else {
+                    System.out.println("Please pick a different card");
+                }
 
-        //checking card picked is in the hand//
-        for (int d = 0; d < player.cardsInHand.size(); d++) {
-            if (player.cardsInHand.get(d).contains(pickCard))   {
-                System.out.println("You can play this card");
-            } else {
-                System.out.println("Please pick a different card");
+                int discardCount = discard.cardsInHand.size();
+                //System.out.println(discardCount);
+                String discardString = discard.cardsInHand.get(0);
 
-        }
-
-            //if (player.cardsInHand.get)
-            //checking card picked to the card faceup//
-            //System.out.println(discard.cardsInHand);
-            int discardCount = discard.cardsInHand.size();
-            //System.out.println(discardCount);
-            String discardString = discard.cardsInHand.get(0);
-
-            //System.out.println(discardString);     //testing purposes
-               String discardSplit[] = discardString.split(" ");
-              //System.out.println(discardSplit);             //testing purposes
-            if (discardString.contains(discardSplit[0]) || (discardString.contains(discardSplit[2]))) {
-                discard.cardsInHand.add(pickCard);
-                player.cardsInHand.remove(pickCard);
-            } else {
-                System.out.println("You cannot play this card");
-            }
-            System.out.println(discard.cardsInHand);
+                //System.out.println(discardString);     //testing purposes
+                String discardSplit[] = discardString.split(" ");
+                //System.out.println(discardSplit);             //testing purposes
+                if (discardString.contains(discardSplit[0]) || (discardString.contains(discardSplit[2]))) {
+                    discard.cardsInHand.add(pickCard);
+                    player.cardsInHand.remove(pickCard);
+                } else {
+                    System.out.println("You cannot play this card");
+                }
+                System.out.println(discard.cardsInHand);
             }
 
 
@@ -92,7 +89,7 @@ public class Main {
 
         }
 
-
+    }
 
 
 
